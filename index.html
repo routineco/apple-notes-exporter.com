@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Notes Exporter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <h1>Apple Notes Exporter</h1>
+            <p class="hero-description">
+                Easily export your Apple Notes to Markdown, HTML or PDF to back them up or import them in another app.
+            </p>
+        </section>
+
+        <section class="gallery">
+            <div class="gallery-container">
+                <div class="gallery-preview gallery-preview-left">
+                    <img src="assets/screenshots/2.png" alt="Apple Notes Exporter - Feature Two" class="preview-image">
+                </div>
+                <div class="gallery-main">
+                    <div class="gallery-item" data-index="0">
+                        <img src="assets/screenshots/1.png" alt="Apple Notes Exporter - Note Selection Interface" class="gallery-image">
+                    </div>
+                </div>
+                <div class="gallery-preview gallery-preview-right">
+                    <img src="assets/screenshots/3.png" alt="Apple Notes Exporter - Feature Three" class="preview-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="lightboxClose">&times;</button>
+                <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&lt;</button>
+                <button class="lightbox-nav lightbox-next" id="lightboxNext">&gt;</button>
+                <div class="lightbox-image-container">
+                    <img src="" alt="" class="lightbox-image" id="lightboxImage">
+                </div>
+                <div class="lightbox-indicators">
+                    <span class="indicator active" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                    <span class="indicator" data-index="3"></span>
+                </div>
+            </div>
+        </div>
+
+        <section class="cta">
+            <div class="download-buttons">
+                <a href="#" class="download-button">
+                    <img src="assets/icons/macos.svg" alt="macOS icon" width="16" height="16">
+                    Download for Mac
+                </a>
+                <a href="#" class="download-button">
+                    <img src="assets/icons/windows.svg" alt="Windows icon" width="16" height="16">
+                    Download for Windows
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> Apple Notes Exporter</p>
+            <p class="credits">Made by <a href="https://routine.co" target="_blank" rel="noopener noreferrer">Routine</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        const indicators = document.querySelectorAll('.indicator');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        const images = [
+            'assets/screenshots/1.png',
+            'assets/screenshots/2.png',
+            'assets/screenshots/3.png',
+            'assets/screenshots/4.png'
+        ];
+        
+        let currentIndex = 0;
+
+        // Open lightbox
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                showImage(currentIndex);
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Navigation
+        lightboxPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        });
+
+        lightboxNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            }
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next image
+                    currentIndex = (currentIndex + 1) % images.length;
+                } else {
+                    // Swipe right - previous image
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                }
+                showImage(currentIndex);
+            }
+        }
+
+        // Indicator clicks
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                showImage(currentIndex);
+            });
+        });
+
+        function showImage(index) {
+            lightboxImage.src = images[index];
+            lightboxImage.alt = `Screenshot ${index + 1}`;
+            
+            // Update indicators
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    </script>
+</body>
+</html> 
