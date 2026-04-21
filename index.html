@@ -4,47 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Apple Notes Exporter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="top-bar">
+        <a href="/" class="nav-brand">Apple Notes Exporter</a>
         <a href="https://github.com/routineco/apple-notes-exporter" target="_blank" rel="noopener noreferrer" class="github-link">
-            <img src="https://img.shields.io/github/stars/routineco/apple-notes-exporter?style=social" alt="GitHub stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            Star on GitHub
         </a>
     </nav>
     <main>
         <section class="hero">
-            <h1>Free Apple Notes Exporter</h1>
+            <p class="hero-eyebrow">
+                Free
+                <span class="hero-eyebrow-dot"></span>
+                Open Source
+                <span class="hero-eyebrow-dot"></span>
+                macOS &amp; Windows
+            </p>
+            <h1>Export your Apple Notes</h1>
             <p class="hero-description">
-              Export your Apple Notes to Markdown, HTML or PDF to back them up or import them in another app.
+                Export your Apple Notes to Markdown, HTML or PDF to back them up or import them in another app.
             </p>
         </section>
 
         <section class="cta">
             <div class="download-buttons">
                 <a href="#" class="download-button">
-                    <img src="assets/icons/macos.svg" alt="macOS icon" width="16" height="16">
+                    <img src="assets/icons/macos.svg" alt="macOS icon" width="15" height="15">
                     Download for Mac
                 </a>
                 <a href="#" class="download-button">
-                    <img src="assets/icons/windows.svg" alt="Windows icon" width="16" height="16">
+                    <img src="assets/icons/windows.svg" alt="Windows icon" width="15" height="15">
                     Download for Windows
                 </a>
             </div>
         </section>
-        
+
         <section class="gallery">
-            <div class="gallery-container">
-                <div class="gallery-preview gallery-preview-left">
-                    <img src="assets/screenshots/2.png" alt="Apple Notes Exporter - Feature Two" class="preview-image">
-                </div>
-                <div class="gallery-main">
-                    <div class="gallery-item" data-index="0">
-                        <img src="assets/screenshots/1.png" alt="Apple Notes Exporter - Note Selection Interface" class="gallery-image">
+            <div class="gallery-border-top">
+                <div class="gallery-container">
+                    <div class="gallery-preview gallery-preview-left">
+                        <img src="assets/screenshots/2.png" alt="Apple Notes Exporter - Feature Two" class="preview-image">
                     </div>
-                </div>
-                <div class="gallery-preview gallery-preview-right">
-                    <img src="assets/screenshots/3.png" alt="Apple Notes Exporter - Feature Three" class="preview-image">
+                    <div class="gallery-main">
+                        <div class="gallery-item" data-index="0">
+                            <img src="assets/screenshots/1.png" alt="Apple Notes Exporter - Note Selection Interface" class="gallery-image">
+                        </div>
+                    </div>
+                    <div class="gallery-preview gallery-preview-right">
+                        <img src="assets/screenshots/3.png" alt="Apple Notes Exporter - Feature Three" class="preview-image">
+                    </div>
                 </div>
             </div>
         </section>
@@ -53,8 +68,8 @@
         <div class="lightbox" id="lightbox">
             <div class="lightbox-content">
                 <button class="lightbox-close" id="lightboxClose">&times;</button>
-                <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&lt;</button>
-                <button class="lightbox-nav lightbox-next" id="lightboxNext">&gt;</button>
+                <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&lsaquo;</button>
+                <button class="lightbox-nav lightbox-next" id="lightboxNext">&rsaquo;</button>
                 <div class="lightbox-image-container">
                     <img src="" alt="" class="lightbox-image" id="lightboxImage">
                 </div>
@@ -76,7 +91,6 @@
     </footer>
 
     <script>
-        // Lightbox functionality
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightboxImage');
         const lightboxClose = document.getElementById('lightboxClose');
@@ -84,17 +98,16 @@
         const lightboxNext = document.getElementById('lightboxNext');
         const indicators = document.querySelectorAll('.indicator');
         const galleryItems = document.querySelectorAll('.gallery-item');
-        
+
         const images = [
             'assets/screenshots/1.png',
             'assets/screenshots/2.png',
             'assets/screenshots/3.png',
             'assets/screenshots/4.png'
         ];
-        
+
         let currentIndex = 0;
 
-        // Open lightbox
         galleryItems.forEach((item, index) => {
             item.addEventListener('click', () => {
                 currentIndex = index;
@@ -104,7 +117,6 @@
             });
         });
 
-        // Close lightbox
         lightboxClose.addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
@@ -112,7 +124,6 @@
             }
         });
 
-        // Navigation
         lightboxPrev.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             showImage(currentIndex);
@@ -123,22 +134,20 @@
             showImage(currentIndex);
         });
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            
-            if (e.key === 'Escape') {
-                closeLightbox();
-            } else if (e.key === 'ArrowLeft') {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                showImage(currentIndex);
-            } else if (e.key === 'ArrowRight') {
-                currentIndex = (currentIndex + 1) % images.length;
-                showImage(currentIndex);
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    showImage(currentIndex);
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    showImage(currentIndex);
+                }
             }
         });
 
-        // Touch/swipe support
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -154,20 +163,17 @@
         function handleSwipe() {
             const swipeThreshold = 50;
             const diff = touchStartX - touchEndX;
-            
+
             if (Math.abs(diff) > swipeThreshold) {
                 if (diff > 0) {
-                    // Swipe left - next image
                     currentIndex = (currentIndex + 1) % images.length;
                 } else {
-                    // Swipe right - previous image
                     currentIndex = (currentIndex - 1 + images.length) % images.length;
                 }
                 showImage(currentIndex);
             }
         }
 
-        // Indicator clicks
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
                 currentIndex = index;
@@ -178,8 +184,6 @@
         function showImage(index) {
             lightboxImage.src = images[index];
             lightboxImage.alt = `Screenshot ${index + 1}`;
-            
-            // Update indicators
             indicators.forEach((indicator, i) => {
                 indicator.classList.toggle('active', i === index);
             });
@@ -191,4 +195,4 @@
         }
     </script>
 </body>
-</html> 
+</html>
