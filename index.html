@@ -3,70 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Apple Notes Exporter</title>
+    <title>Free Apple Notes Exporter — Export to PDF, Markdown & Obsidian</title>
+    <meta name="description" content="Export your Apple Notes for free to PDF, Markdown, HTML or Obsidian. Open-source Mac app. Backup iCloud Notes or transfer them to Android, Windows, Google Keep and more.">
+    <link rel="canonical" href="https://apple-notes-exporter.com/">
+    <meta property="og:title" content="Free Apple Notes Exporter — Export to PDF, Markdown & Obsidian">
+    <meta property="og:description" content="Export Apple Notes to PDF, Markdown, Obsidian or HTML. Free, open-source, runs entirely on your Mac.">
+    <meta property="og:image" content="/assets/screenshots/2.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Apple Notes Exporter","operatingSystem":"macOS","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Export Apple Notes to PDF, Markdown, HTML or Obsidian for free."}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <nav class="top-bar">
-        <a href="/" class="nav-brand">Apple Notes Exporter</a>
-        <a href="https://github.com/routineco/apple-notes-exporter" target="_blank" rel="noopener noreferrer" class="github-link">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
-            Star on GitHub
-        </a>
-    </nav>
+    <script src="./nav.js"></script>
     <main>
         <section class="hero">
-            <p class="hero-eyebrow">
-                Free
-                <span class="hero-eyebrow-dot"></span>
-                Open Source
-            </p>
-            <h1>Export your Apple Notes</h1>
-            <p class="hero-description">
-                Export your Apple Notes to Markdown, HTML or PDF to back them up or import them in another app.
-            </p>
+            <p class="hero-eyebrow">Free <span class="hero-eyebrow-dot"></span> Open Source</p>
+            <h1>Export your Apple Notes for Free</h1>
+            <p class="hero-description">Export your iCloud Notes to <strong>PDF</strong>, <strong>Markdown</strong> or <strong>HTML</strong> — back them up, move to Obsidian, Google Keep or open them on Windows and Android. No account. No cloud. Runs entirely on your Mac.</p>
         </section>
-
         <section class="cta">
             <div class="download-buttons">
                 <a href="https://github.com/routineco/apple-notes-exporter/releases/download/1.0.0/Apple.Notes.Exporter-1.0.0-arm64.dmg" class="download-button">
-                    <img src="assets/icons/macos.svg" alt="macOS icon" width="15" height="15">
-                    Download for Mac
+                    <img src="./assets/icons/macos.svg" alt="macOS" width="15" height="15">
+                    Download for Mac — Free
                 </a>
             </div>
         </section>
-
-        <section class="gallery">
+        <section class="gallery" aria-label="App screenshots">
             <div class="gallery-border-top">
                 <div class="gallery-container">
                     <div class="gallery-preview gallery-preview-left">
-                        <img src="assets/screenshots/1.png" alt="Apple Notes Exporter - Scan" class="gallery-image">
+                        <img src="./assets/screenshots/1.png" alt="Apple Notes Exporter — Scan your library" class="gallery-image">
                     </div>
                     <div class="gallery-main">
                         <div class="gallery-item" data-index="0">
-                            <img src="assets/screenshots/2.png" alt="Apple Notes Exporter - Select" class="preview-image">
+                            <img src="./assets/screenshots/2.png" alt="Apple Notes Exporter — Select notes to export" class="preview-image">
                         </div>
                     </div>
                     <div class="gallery-preview gallery-preview-right">
-                        <img src="assets/screenshots/3.png" alt="Apple Notes Exporter - Export" class="preview-image">
+                        <img src="./assets/screenshots/3.png" alt="Apple Notes Exporter — Export to PDF or Markdown" class="preview-image">
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Lightbox Modal -->
-        <div class="lightbox" id="lightbox">
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
             <div class="lightbox-content">
-                <button class="lightbox-close" id="lightboxClose">&times;</button>
-                <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&lsaquo;</button>
-                <button class="lightbox-nav lightbox-next" id="lightboxNext">&rsaquo;</button>
-                <div class="lightbox-image-container">
-                    <img src="" alt="" class="lightbox-image" id="lightboxImage">
-                </div>
+                <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+                <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&lsaquo;</button>
+                <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&rsaquo;</button>
+                <div class="lightbox-image-container"><img src="" alt="" class="lightbox-image" id="lightboxImage"></div>
                 <div class="lightbox-indicators">
                     <span class="indicator active" data-index="0"></span>
                     <span class="indicator" data-index="1"></span>
@@ -75,118 +63,88 @@
                 </div>
             </div>
         </div>
-    </main>
 
+        <section class="seo-section" id="formats">
+            <p class="section-label">Export formats</p>
+            <h2>Export Apple Notes to any format you need</h2>
+            <p class="lead">Apple Notes Exporter converts your notes into open, portable formats so you're never locked into one ecosystem. Choose the format that fits your workflow.</p>
+            <div class="formats-row">
+                <span class="format-pill"><span class="format-pill-dot red"></span>PDF</span>
+                <span class="format-pill"><span class="format-pill-dot blue"></span>Markdown (.md)</span>
+                <span class="format-pill"><span class="format-pill-dot amber"></span>HTML</span>
+            </div>
+            <div class="usecases-grid">
+                <div class="usecase-card">
+                    <span class="usecase-icon" aria-hidden="true">📄</span>
+                    <h3>Apple Notes to PDF</h3>
+                    <p>Print, archive or share any note as a PDF. Ideal for scanned documents and formal records you want to keep forever.</p>
+                </div>
+                <div class="usecase-card">
+                    <span class="usecase-icon" aria-hidden="true">✍️</span>
+                    <h3>Apple Notes to Markdown</h3>
+                    <p>Get clean .md files with your folder structure preserved. Ready to drop into Obsidian, Notion, Bear, Logseq or any text editor.</p>
+                </div>
+                <div class="usecase-card">
+                    <span class="usecase-icon" aria-hidden="true">🌐</span>
+                    <h3>Apple Notes to HTML</h3>
+                    <p>Export to HTML for maximum compatibility. Open your notes in any browser on any device — Windows, Android or Samsung.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="seo-section" id="use-cases">
+            <p class="section-label">Use cases</p>
+            <h2>Leaving Apple? Your notes come with you.</h2>
+            <p class="lead">Whether you're switching to Android, moving your second brain to Obsidian, or just want an offline backup, Apple Notes Exporter gets your data out — fast.</p>
+            <div class="platforms-grid">
+                <div class="platform-card"><p class="platform-name">Obsidian</p><p class="platform-desc">Export to Markdown with folder structure intact.</p></div>
+                <div class="platform-card"><p class="platform-name">Google Keep</p><p class="platform-desc">Migrate notes via HTML or Markdown export.</p></div>
+                <div class="platform-card"><p class="platform-name">Windows PC</p><p class="platform-desc">PDF and HTML open natively on any Windows machine.</p></div>
+                <div class="platform-card"><p class="platform-name">Android & Samsung</p><p class="platform-desc">Move to Android without losing your notes.</p></div>
+                <div class="platform-card"><p class="platform-name">Notion</p><p class="platform-desc">Import Markdown files into Notion pages directly.</p></div>
+                <div class="platform-card"><p class="platform-name">Backup & Archive</p><p class="platform-desc">Create a local, offline archive of every note as PDF.</p></div>
+            </div>
+        </section>
+
+        <section class="seo-section" id="how-it-works">
+            <p class="section-label">How it works</p>
+            <h2>Export your notes in three steps</h2>
+            <p class="lead">The whole process takes less than a minute. No account, no subscription, nothing uploaded to any server.</p>
+            <div class="steps-list">
+                <div class="step-item"><div class="step-number">1</div><div class="step-content"><h3>Scan your Apple Notes library</h3><p>Open the app and let it scan all your notes and iCloud folders automatically. No configuration needed.</p></div></div>
+                <div class="step-item"><div class="step-number">2</div><div class="step-content"><h3>Select the notes you want to export</h3><p>Browse your folders, search, and select individual notes or entire folders. Export everything or just a specific set.</p></div></div>
+                <div class="step-item"><div class="step-number">3</div><div class="step-content"><h3>Choose your format and export</h3><p>Pick PDF, Markdown or HTML and choose a destination folder. Your notes are saved locally — nothing is sent to any server.</p></div></div>
+            </div>
+        </section>
+
+        <section class="seo-section" id="faq">
+            <p class="section-label">FAQ</p>
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How do I export Apple Notes to PDF?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-answer">Download Apple Notes Exporter, open the app and let it scan your library. Select the notes you want, choose PDF as the export format, and pick a destination folder. Everything runs locally on your Mac.</div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Can I export Apple Notes to Obsidian?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-answer">Yes. Apple Notes Exporter exports to Markdown (.md) files with your folder structure preserved. You can open these files directly as an Obsidian vault. It also works with Bear, Logseq, Notion and any Markdown-based app.</div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Can I transfer Apple Notes to Android or Samsung?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-answer">The exporter runs on macOS, but the files it produces (PDF, HTML, Markdown) open on any device — Android phones, Samsung tablets, Windows PCs, or any browser.</div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Does it work with iCloud Notes?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-answer">Yes. Apple Notes Exporter works with all notes stored in the Apple Notes app, including those synced via iCloud. As long as your notes are visible in the Notes app on your Mac, the exporter can find them.</div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Is Apple Notes Exporter really free?</span><svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="faq-answer">Yes, completely free and open-source. No subscription, no in-app purchase, no account required. The source code is on GitHub so you can inspect it yourself.</div></div>
+            </div>
+        </section>
+
+        <div class="cta-bottom">
+            <h2>Ready to export your notes?</h2>
+            <p>Free, open-source, and takes less than a minute to get started.</p>
+            <div class="download-buttons">
+                <a href="https://github.com/routineco/apple-notes-exporter/releases/download/1.0.0/Apple.Notes.Exporter-1.0.0-arm64.dmg" class="download-button">
+                    <img src="./assets/icons/macos.svg" alt="" width="15" height="15">
+                    Download for Mac — Free
+                </a>
+            </div>
+        </div>
+    </main>
     <footer>
         <div class="footer-content">
             <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> Apple Notes Exporter</p>
             <p class="credits">Made by <a href="https://routine.co" target="_blank" rel="noopener noreferrer">Routine</a></p>
         </div>
     </footer>
-
-    <script>
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightboxImage');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const lightboxPrev = document.getElementById('lightboxPrev');
-        const lightboxNext = document.getElementById('lightboxNext');
-        const indicators = document.querySelectorAll('.indicator');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        const images = [
-            'assets/screenshots/1.png',
-            'assets/screenshots/2.png',
-            'assets/screenshots/3.png',
-            'assets/screenshots/4.png'
-        ];
-
-        let currentIndex = 0;
-
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                currentIndex = index;
-                showImage(currentIndex);
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        lightboxPrev.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            showImage(currentIndex);
-        });
-
-        lightboxNext.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            showImage(currentIndex);
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('active')) {
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                } else if (e.key === 'ArrowLeft') {
-                    currentIndex = (currentIndex - 1 + images.length) % images.length;
-                    showImage(currentIndex);
-                } else if (e.key === 'ArrowRight') {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    showImage(currentIndex);
-                }
-            }
-        });
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        lightbox.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        lightbox.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    currentIndex = (currentIndex + 1) % images.length;
-                } else {
-                    currentIndex = (currentIndex - 1 + images.length) % images.length;
-                }
-                showImage(currentIndex);
-            }
-        }
-
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentIndex = index;
-                showImage(currentIndex);
-            });
-        });
-
-        function showImage(index) {
-            lightboxImage.src = images[index];
-            lightboxImage.alt = `Screenshot ${index + 1}`;
-            indicators.forEach((indicator, i) => {
-                indicator.classList.toggle('active', i === index);
-            });
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    </script>
 </body>
 </html>
