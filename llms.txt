@@ -1,0 +1,26 @@
+# Apple Notes Exporter
+
+> Free, open-source Mac app to export Apple Notes to PDF, Markdown, HTML or Obsidian. Runs entirely on your Mac — no account, no cloud.
+
+## Use Cases
+
+- [Export Apple Notes to PDF](https://apple-notes-exporter.com/pages/apple-notes-to-pdf.html): Convert your iCloud Notes into PDF files for archiving, sharing, or printing.
+- [Export Apple Notes to Obsidian](https://apple-notes-exporter.com/pages/apple-notes-to-obsidian.html): Migrate your notes from Apple Notes to Obsidian with Markdown formatting preserved.
+- [iCloud Notes Exporter](https://apple-notes-exporter.com/pages/icloud-notes-exporter.html): Back up and export all your iCloud Notes locally.
+- [Export Apple Notes to Google Keep](https://apple-notes-exporter.com/pages/apple-notes-to-google-keep.html): Transfer your Apple Notes to Google Keep.
+- [Export Apple Notes to Android](https://apple-notes-exporter.com/pages/apple-notes-to-android.html): Move your notes from Apple Notes so you can access them on Android devices.
+- [Export Apple Notes to Windows](https://apple-notes-exporter.com/pages/apple-notes-to-windows.html): Export your notes from Apple Notes to use on Windows.
+
+## Guides
+
+- [How to Export Apple Notes](https://apple-notes-exporter.com/pages/how-to-export-apple-notes.html): Step-by-step guide to exporting your Apple Notes using the app.
+- [Apple Notes Alternatives](https://apple-notes-exporter.com/pages/apple-notes-alternatives.html): Overview of note-taking apps you can switch to from Apple Notes.
+
+## Details
+
+- Platform: macOS
+- Price: Free
+- License: Open source
+- Download: [GitHub Releases](https://github.com/routineco/apple-notes-exporter/releases/download/1.0.0/Apple.Notes.Exporter-1.0.0-arm64.dmg)
+- Source: [GitHub](https://github.com/routineco/apple-notes-exporter)
+- Export formats: PDF, Markdown, HTML
