@@ -6,12 +6,13 @@
     const inPages = window.location.pathname.indexOf('/pages/') !== -1
                  || window.location.href.indexOf('/pages/') !== -1;
     const ROOT = inPages ? '../' : './';
+    const HOME = inPages ? '../' : './';
     function p(path) { return ROOT + path; }
 
     const NAV_HTML = `
 <nav class="top-bar" role="navigation" aria-label="Main navigation">
   <div class="nav-left">
-    <a href="${p('index.html')}" class="nav-brand">Apple Notes Exporter</a>
+    <a href="${HOME}" class="nav-brand">Apple Notes Exporter</a>
     <ul class="nav-links" role="list">
       <li>
         <button class="nav-link" aria-expanded="false" aria-haspopup="true" data-dropdown="formats">
